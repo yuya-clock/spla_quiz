@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\WeaponController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,5 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('start');
-});
+Route::get('/start', [WeaponController::class, 'index']);
+Route::get('/weapon', [WeaponController::class, 'index']);
