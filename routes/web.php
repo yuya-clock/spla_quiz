@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/start', [WeaponController::class, 'index']);
-Route::get('/weapon', [WeaponController::class, 'index']);
+Route::prefix('/weapon')->name('weapon.')->group(function() {
+    Route::get('start', [WeaponController::class, 'start'])->name('start');
+    Route::get('question', [WeaponController::class, 'question'])->name('question');
+    Route::get('answer', [WeaponController::class, 'answer'])->name('answer');
+});

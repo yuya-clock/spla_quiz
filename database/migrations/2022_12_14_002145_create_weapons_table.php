@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('weapons', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->comment('名前');
             $table->tinyInteger('rifle_range')->unsigned()->comment('射程');
             $table->tinyInteger('maximum_range')->unsigned()->comment('最大射程');
             $table->string('path')->nullable()->comment('画像パス');

@@ -21,8 +21,6 @@
         </style>
     </head>
     <body>
-        スプラトゥーンクイズへようこそ！
-        <br/>
-        スタートボタンを表示する
+        @yield('content')
     </body>
 </html>
