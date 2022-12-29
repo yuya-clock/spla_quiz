@@ -21,5 +21,5 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('/weapon')->name('weapon.')->group(function() {
     Route::get('start', [WeaponController::class, 'start'])->name('start');
     Route::get('question', [WeaponController::class, 'question'])->name('question');
-    Route::get('answer', [WeaponController::class, 'answer'])->name('answer');
+    Route::post('answer', [WeaponController::class, 'answer'])->name('answer');
 });
