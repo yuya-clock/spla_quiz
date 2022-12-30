@@ -18,7 +18,7 @@
         {{ $loop->iteration }}つ目の武器
         <br/>
         名前：{{ $weapon->name }}
-        （画面から消す→射程:{{ $weapon->rifle_range }}、最大射程:{{ $weapon->maximum_range }}、id:{{ $weapon->id }}）
+        （画面から消す→射程:{{ $weapon->rifle_range }}、最長射程:{{ $weapon->maximum_range }}）
         <br/>
         <form action="{{ route('weapon.answer') }}" method="POST">
             @csrf

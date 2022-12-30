@@ -3,7 +3,7 @@
 @section('content')
     スプラトゥーンクイズ！
     <br/>
-    武器の射程が長いのはどっちだー！？
+    射程が長い武器はどっち！？
     <br/>
     <br/>
     <button onclick="window.location.href='{{ route('weapon.question') }}'">
