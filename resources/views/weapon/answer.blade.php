@@ -12,12 +12,12 @@
     <br/>
 
     1つ目の武器<br/>
-    武器の名前：{{ $question_first_weapon->name }}<br/>
-    武器の最長射程：{{ $question_first_weapon->maximum_range }}<br/>
+    武器の名前：{{ $first_weapon->name }}<br/>
+    武器の最長射程：{{ $first_weapon->maximum_range }}<br/>
     <br/>
     2つ目の武器<br/>
-    武器の名前：{{ $question_second_weapon->name }}<br/>
-    武器の最長射程：{{ $question_second_weapon->maximum_range }}<br/>
+    武器の名前：{{ $second_weapon->name }}<br/>
+    武器の最長射程：{{ $second_weapon->maximum_range }}<br/>
     <br/>
     <br/>
 

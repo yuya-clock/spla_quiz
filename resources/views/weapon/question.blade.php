@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    最長射程が長い武器は？
+    射程が長い武器はどっち？
     <br/>
     <br/>
     @if ($errors->any())
@@ -14,20 +14,26 @@
         </div>
     <br/>
     @endif
+
     @foreach ($weapons as $weapon)
-        {{ $loop->iteration }}つ目の武器
+        {{ $loop->iteration }}つ目
         <br/>
         名前：{{ $weapon->name }}
-        （画面から消す→射程:{{ $weapon->rifle_range }}、最長射程:{{ $weapon->maximum_range }}）
+        {{-- （画面から消す→id:{{ $weapon->id }}、射程:{{ $weapon->rifle_range }}、最長射程:{{ $weapon->maximum_range }}） --}}
         <br/>
-        <form action="{{ route('weapon.answer') }}" method="POST">
-            @csrf
-            <button type="submit" name="chosen_weapon_id" value="{{ $weapon->id }}">これ</button>
-            <input type="hidden" name="question_first_weapon_id" value="{{ $weapons->first()->id }}"/>
-            <input type="hidden" name="question_second_weapon_id" value="{{ $weapons->last()->id }}"/>
-        </form>
         <br/>
-    @endforeach
+        @endforeach
+        
+        
+    <form action="{{ route('weapon.answer') }}" method="POST">
+        @csrf
+        <button type="submit" name="chosen_choice" value="{{ $weapons->first()->id }}">{{ $weapons->first()->name }}</button>
+        <button type="submit" name="chosen_choice" value="{{ $weapons->last()->id }}">{{ $weapons->last()->name }}</button>
+        <button type="submit" name="chosen_choice" value="same">同じ射程</button>
+        <input type="hidden" name="first_weapon_id" value="{{ $weapons->first()->id }}"/>
+        <input type="hidden" name="second_weapon_id" value="{{ $weapons->last()->id }}"/>
+    </form>
+    <br/>
 
     <br/>
     <button onclick="window.location.href='{{ route('weapon.start') }}'">

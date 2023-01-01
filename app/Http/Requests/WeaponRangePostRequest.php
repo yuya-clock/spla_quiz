@@ -31,9 +31,9 @@ class WeaponRangePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'chosen_weapon_id' => 'bail | required | integer',
-            'question_first_weapon_id' => 'bail | required | integer',
-            'question_second_weapon_id' => 'bail | required | integer',
+            'chosen_choice' => 'bail | required',
+            'first_weapon_id' => 'bail | required | integer',
+            'second_weapon_id' => 'bail | required | integer',
         ];
     }
 }

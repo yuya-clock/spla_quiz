@@ -27,12 +27,10 @@ class WeaponController extends Controller
 
     public function answer(WeaponRangePostRequest $request)
     {
-        $is_correct = $this->weapon_range_service->isChoseLongWeapon(
-            $request->chosen_weapon_id, $request->question_first_weapon_id,  $request->question_second_weapon_id
-        );
+        $is_correct = $this->weapon_range_service->isChosenCorrectAnswer($request);
         return view('weapon.answer', [
-            'question_first_weapon' => Weapon::findOrFail($request->question_first_weapon_id),
-            'question_second_weapon' => Weapon::findOrFail($request->question_second_weapon_id),
+            'first_weapon' => Weapon::findOrFail($request->first_weapon_id),
+            'second_weapon' => Weapon::findOrFail($request->second_weapon_id),
             'is_correct' => $is_correct,
         ]);
     }
