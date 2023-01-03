@@ -1,30 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-    結果
-    <br/>
-    <br/>
     @if ($is_correct === true)
-        正解です！<br/>
+        ナイス！ キミ、イカしてるね<br/>
     @else
-        不正解です！<br/>
+        まちがい！ まだまだ、イかしてないね…<br/>
     @endif
     <br/>
 
-    1つ目の武器<br/>
-    武器の名前：{{ $first_weapon->name }}<br/>
-    武器の最長射程：{{ $first_weapon->maximum_range }}<br/>
+    1. {{ $first_weapon->name }} → {{ $first_weapon->maximum_range }}<br/>
     <br/>
-    2つ目の武器<br/>
-    武器の名前：{{ $second_weapon->name }}<br/>
-    武器の最長射程：{{ $second_weapon->maximum_range }}<br/>
+    2. {{ $second_weapon->name  }} → {{ $second_weapon->maximum_range }}<br/>
     <br/>
     <br/>
 
     <button onclick="window.location.href='{{ route('weapon.question') }}'">
-        次のクイズ！
+        つぎのクイズ
     </button>
     <button onclick="window.location.href='{{ route('weapon.start') }}'">
-        トップへ
+        トップ
     </button>
 @endsection
