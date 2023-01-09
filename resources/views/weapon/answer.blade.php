@@ -1,23 +1,33 @@
 @extends('layouts.app')
 
 @section('content')
-    @if ($is_correct === true)
-        ナイス！ キミ、イカしてるね<br/>
-    @else
-        まちがい！ まだまだ、イかしてないね…<br/>
-    @endif
-    <br/>
+    <div class="answer__content">
+        <div class="answer__text">
+            @if ($is_correct === true)
+                ナイス！<br/>キミ、イカしてるね
+            @else
+                ざんねん！<br/>まだイかしてないね…
+            @endif
+        </div>
 
-    1. {{ $first_weapon->name }} → {{ $first_weapon->maximum_range }}<br/>
-    <br/>
-    2. {{ $second_weapon->name  }} → {{ $second_weapon->maximum_range }}<br/>
-    <br/>
-    <br/>
+        <div class="answer__choices">
+            <div class="answer__choice">
+                1. {{ $first_weapon->name }}<br/>→ {{ $first_weapon->maximum_range }}<br/>
+                <img src="{{ Vite::image("$first_weapon->path.png") }}"/>
+            </div>
+            <div class="answer__choice">
+                2. {{ $second_weapon->name  }}<br/>→ {{ $second_weapon->maximum_range }}<br/>
+                <img src="{{ Vite::image("$second_weapon->path.png") }}"/>
+            </div>
+        </div>
 
-    <button onclick="window.location.href='{{ route('weapon.question') }}'">
-        つぎのクイズ
-    </button>
-    <button onclick="window.location.href='{{ route('weapon.start') }}'">
-        トップ
-    </button>
+        <div class="answer__form">
+            <button class="answer__button" onclick="window.location.href='{{ route('weapon.question') }}'">
+                つぎのクイズ
+            </button>
+            <button  class="answer__button" onclick="window.location.href='{{ route('weapon.start') }}'">
+                トップ
+            </button>
+        </div>
+    </div>
 @endsection

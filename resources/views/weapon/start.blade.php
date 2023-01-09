@@ -1,15 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <img src="{{ Vite::asset('resources/images/title.png') }}"> --}}
-    {{-- <img src="{{ Vite::image('title.png') }}" alt="title"> --}}
-    Splatoon
-    <br/>
-    クイズ！！
-    <br/>
-    <br/>
-
-    <button onclick="window.location.href='{{ route('weapon.question') }}'">
-        クイズスタート
-    </button>
+    <div class="title__content">
+        {{-- <img src="{{ Vite::asset('resources/images/title.png') }}"> --}}
+        <div class="title__text">Splatoon<br/>クイズ！</div>
+    
+        <button class="title__button" onclick="window.location.href='{{ route('weapon.question') }}'">
+            クイズスタート
+        </button>
+    </div>
 @endsection

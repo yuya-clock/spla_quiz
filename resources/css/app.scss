@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'イカモドキ';
+    src: url('../fonts/ikamodoki1_0.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Paintball';
+    src: url('../fonts/Paintball_Beta_4a.otf') format('opentype');
+}
+
+body {
+    font-family: 'Paintball', 'イカモドキ', 'Nunito', sans-serif;
+    text-align: center;
+    letter-spacing: 0.2rem;
+    margin: 0;
+    color: rgba(249, 255, 247, 0.96);
+    // text-shadow: rgb(212, 218, 26) 0.2rem 0.2rem 0.1rem;
+    min-height: 100vh;
+    box-sizing: border-box; //borderやpaddingを100に含める
+    background-image: url('../images/phone.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.content {
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8); //背景の透過度を調整
+}
+
+button {
+    font-family: 'Paintball', 'イカモドキ', 'Nunito', sans-serif;
+    letter-spacing: 0.2rem;
+    border-radius: 100vh;
+    padding: 0.5rem 2rem;
+    margin: 0.5rem;
+    border: 0.1rem solid #fff;
+    &:hover {
+        color: #fff;
+        background-color:rgb(41, 46, 46);
+    }
+}
+
+img {
+    width: clamp(7rem, 5rem + 10vw, 50vw);
+    height: auto;
+}
+
+.title__content {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; //折り返しの許可
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    .title__text {
+        font-size: clamp(3rem, 4rem + 2vw, 6rem);
+        padding-bottom: 2rem;
+    }
+    .title__button {
+        width: 17rem;
+        font-size: clamp(1.8rem, 1.7rem + 0.5vw, 6rem);
+    }
+}
+
+.question__content {
+    min-height: 100vh;
+    display: grid;
+    align-content: space-evenly;
+    .question__text {
+        font-size: clamp(1.5rem, 2rem + 0.5vw, 10rem);
+        padding: 1rem;
+    }
+    .question__choices {
+        font-size: clamp(1.5rem, 0.5rem + 1vw, 5rem);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .question__choice {
+            flex-basis: 25rem;
+        }
+    }
+    .question__form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        .question__button {
+            font-size: clamp(1.3rem, 0.5rem + 1vw, 5rem);
+            text-align: left;
+            width: clamp(20rem, 20rem + 7vw, 32rem);
+        }
+    }
+}
+
+.answer__content {
+    min-height: 100vh;
+    display: grid;
+    align-content: space-evenly;
+    .answer__text {
+        font-size: clamp(1.5rem, 2rem + 0.5vw, 10rem);
+        padding: 1rem;
+    }
+    .answer__choices {
+        font-size: clamp(1.5rem, 0.5rem + 1vw, 5rem);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .answer__choice {
+            flex-basis: 25rem;
+        }
+    }
+    .answer__form {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-content: center;
+        .answer__button {
+            font-size: clamp(1.3rem, 0.5rem + 1vw, 5rem);
+            text-align: center;
+            width: 12rem;
+        }
+    }
+}
+
+// @media screen and (min-width: 481px) {
+//     body {
+//         background-image: url('../images/phone.jpg');
+//     }
+// }
+
+@media screen and (min-width: 960px) {
+    body {
+        background-image: url('../images/pc.jpg');
+    }
+}

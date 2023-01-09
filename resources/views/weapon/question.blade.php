@@ -1,41 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    とおくまで、トばせるブキはどっち？
-    <br/>
-    <br/>
-    @if ($errors->any())
-        <div class="alert-danger">
-            <ul>
-                @foreach ($errors->all() as $erorr)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    <div class="question__content">
+        <div class="question__text">シャテイがながいブキはどっち？</div>
+        @if ($errors->any())
+            <div class="alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $erorr)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <div class="question__choices">
+            @foreach ($weapons as $weapon)
+                <div class="question__choice">
+                    <div class="question__choice__text">
+                        {{ $loop->iteration }}.
+                        {{ $weapon->name }}
+                    </div>
+                    <img src="{{ Vite::image("$weapon->path.png") }}" alt="武器の画像"/>
+                </div>
+            @endforeach
         </div>
-    <br/>
-    @endif
 
-    @foreach ($weapons as $weapon)
-        {{ $loop->iteration }}.
-        {{ $weapon->name }}
-        {{-- （画面から消す→id:{{ $weapon->id }}、射程:{{ $weapon->rifle_range }}、最長射程:{{ $weapon->maximum_range }}） --}}
-        <br/>
-        <br/>
-        @endforeach
-        
-        
-    <form action="{{ route('weapon.answer') }}" method="POST">
-        @csrf
-        <button type="submit" name="chosen_choice" value="{{ $weapons->first()->id }}">{{ $weapons->first()->name }}</button>
-        <button type="submit" name="chosen_choice" value="{{ $weapons->last()->id }}">{{ $weapons->last()->name }}</button>
-        <button type="submit" name="chosen_choice" value="same">おなじ</button></button>
-        <input type="hidden" name="first_weapon_id" value="{{ $weapons->first()->id }}"/>
-        <input type="hidden" name="second_weapon_id" value="{{ $weapons->last()->id }}"/>
-    </form>
-    <br/>
-
-    <br/>
-    <button onclick="window.location.href='{{ route('weapon.start') }}'">
-        トップへ
-    </button>
+        <form class="question__form" action="{{ route('weapon.answer') }}" method="POST">
+            @csrf
+            <button class="question__button" type="submit" name="chosen_choice" value="{{ $weapons->first()->id }}">1. {{ $weapons->first()->name }}</button>
+            <button class="question__button" type="submit" name="chosen_choice" value="{{ $weapons->last()->id }}">2. {{ $weapons->last()->name }}</button>
+            <button class="question__button" type="submit" name="chosen_choice" value="same">3. どっちもおなじ</button>
+            <input type="hidden" name="first_weapon_id" value="{{ $weapons->first()->id }}"/>
+            <input type="hidden" name="second_weapon_id" value="{{ $weapons->last()->id }}"/>
+        </form>
+    </div>
 @endsection

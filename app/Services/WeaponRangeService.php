@@ -22,6 +22,12 @@ class WeaponRangeService
         
         // 同じ射程だった場合のテスト用
         // return Weapon::all()->where('maximum_range', 2.1)->random(self::NUMBER_OF_DISPLAY);
+        
+        // テキストが長い場合のテスト用
+        // return Weapon::all()->whereIn('id', [9, 38])->random(self::NUMBER_OF_DISPLAY);
+        
+        // 画像が大きい場合のテスト用
+        // return Weapon::all()->whereIn('id', [67, 68])->random(self::NUMBER_OF_DISPLAY);
     }
 
     /**
