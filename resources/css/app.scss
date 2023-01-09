@@ -122,6 +122,7 @@ img {
     }
 }
 
+// タブレット用に設定しようと思ったが、良い感じの背景がないのでコメントアウト
 // @media screen and (min-width: 481px) {
 //     body {
 //         background-image: url('../images/phone.jpg');
@@ -131,5 +132,8 @@ img {
 @media screen and (min-width: 960px) {
     body {
         background-image: url('../images/pc.jpg');
+    }
+    .content {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
     }
 }
